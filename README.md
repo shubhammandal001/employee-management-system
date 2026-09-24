@@ -1,4 +1,4 @@
-Employee Management System
+# Employee Management System
 
 A modern and responsive Employee Management System built with React.js to manage employee information through a clean and intuitive dashboard interface.
 
