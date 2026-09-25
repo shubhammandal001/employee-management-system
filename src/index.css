@@ -10,3 +10,7 @@ body{
 #tasklist::-webkit-scrollbar {
  display: none;
 }
+
+#all-tasks::-webkit-scrollbar{
+  display: none;
+} 
