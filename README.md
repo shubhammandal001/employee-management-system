@@ -1,4 +1,8 @@
+<<<<<<< HEAD
  Employee Management System
+=======
+# Employee Management System
+>>>>>>> 53c86d3dc203f364ef90b7df6b0cdb0a8c4a48ab
 
 A modern and responsive Employee Management System built with React.js to manage employee information through a clean and intuitive dashboard interface.
 
