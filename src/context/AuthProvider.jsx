@@ -9,9 +9,9 @@ const AuthProvider = ({children}) => {
   const [userData, setuserData] = useState(null)
 
   useEffect(() => {
-     setLocalStorage()
-     const {employee,admin} = getLocalStorage() // destructre kar liya jo getlocalstorage se arha hai usko
-  setuserData({employee,admin})
+     // setLocalStorage()
+     const {employee, admin} = getLocalStorage() // destructre kar liya jo getlocalstorage se arha hai usko
+     setuserData({employee , admin})
   }, [])
   
 
@@ -21,7 +21,7 @@ const AuthProvider = ({children}) => {
 
   return (
     <div>
-      <Authcontext.Provider value = {userData}>
+      <Authcontext.Provider value = {[userData,setuserData]}>
         {children}
       </Authcontext.Provider>
     </div>

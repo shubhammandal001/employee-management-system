@@ -5,20 +5,19 @@ import CompleteTask from './CompleteTask'
 import FailedTask from './FailedTask'
 
 function Tasklist({data}) {
-    // console.log(data);
+    console.log("employee task data",data);
     
   return (
     <div id="tasklist" className='h-[48%] py-5 w-full mt-10 flex items-center justify-start gap-4 flex-nowrap overflow-x-auto '>
        {data.tasks.map((elem ,idx)=>{
-
+        
+        if(elem.newTask){
+            return <NewTask key={idx} data={elem}/>
+        }
         if(elem.active){
             return <AcceptTask key={idx} data={elem}/>
         }
-        if(elem.newTask){
-           
-            return <NewTask key={idx} data={elem}/>
-        }
-        if(elem.completeTask){
+        if(elem.completed){
             return <CompleteTask key={idx} data={elem}/>
         }
         if(elem.failed){

@@ -11,7 +11,7 @@ const App = () => {
   const [User, setUser] = useState(null)
   const [loggedinUserData, setloggedinUserData] = useState(null)
 
-  const authData = useContext(Authcontext)  // saara daata agya hai local storage se use cotext ke help se jo ki auth provider de rha h (context api)
+  const [userData,setuserData] = useContext(Authcontext)  // saara daata agya hai local storage se use cotext ke help se jo ki auth provider de rha h (context api)
   //console.log(authData.employee);
 
   useEffect(() => {
@@ -35,8 +35,10 @@ const App = () => {
        setUser('admin')
        localStorage.setItem('loggedinUser',JSON.stringify({role:'admin'}))
 
-   }else if(authData){
-        const employee = authData.employee.find((e)=>email == e.email && password == e.password)
+   }else if(userData){
+        console.log(userData);
+        
+        const employee = userData.employee.find((e)=>email == e.email && password == e.password)
         if(employee){
            setUser('employee')
            setloggedinUserData(employee)
@@ -57,7 +59,7 @@ const App = () => {
   return (
     <>
     {!User ? < Login handleLogin={handleLogin} /> : ""}
-    {User == 'admin' ? <AdminDashborad /> : (User=='employee'? <EmployeeDashboard data= {loggedinUserData}/> : null)}
+    {User == 'admin' ? <AdminDashborad changeUser={setUser} /> : (User=='employee'? <EmployeeDashboard changeUser={setUser} data = {loggedinUserData}/> : null)}
     </>
   )
 }
